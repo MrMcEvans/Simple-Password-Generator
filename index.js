@@ -5,7 +5,7 @@ var num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 var spec = ['!', '@', '#', '%', '^', '&', '*'];
 var charUpper = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
-
+// Cycles through user options to determine if what characters the user would like to use
 function createPasswordOptions(){
     var passwordLength = prompt(
         'How long would you like your password to be? (Required to be between 10 - 128 characters');
@@ -39,8 +39,8 @@ function createPasswordOptions(){
 
      return userOptions   
 
-
     }
+// Assigns user options array to be compiled and randomized
 function generatePassword(){
     var options = createPasswordOptions();
     
@@ -59,8 +59,8 @@ function generatePassword(){
     if (options.hasNum) {
         selectedCharacters = selectedCharacters.concat(num)
     }
-    console.log(selectedCharacters)
-    console.log(options.length)
+    
+    // Randomizes the compiled array
     for (index = 0; index < options.length; index++) {
         temp = Math.floor(Math.random() * selectedCharacters.length);
         genPassword = genPassword + selectedCharacters[temp];
@@ -70,7 +70,7 @@ function generatePassword(){
     
 }
 
-
+//compiles random generated password to the index.html
 function writePassword(){
     var password = generatePassword();
     var passwordText = document.querySelector('#password');
